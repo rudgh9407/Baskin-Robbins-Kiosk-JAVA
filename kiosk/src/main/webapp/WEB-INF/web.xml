@@ -18,7 +18,7 @@
  </context-param>
  <context-param>
  	<param-name>password</param-name>
- 	<param-value>line5008@</param-value>
+ 	<param-value>***************</param-value>
  </context-param>
    -->
   
@@ -27,11 +27,11 @@
 <!--
  <context-param>
  	<param-name>ssh_pw</param-name>
- 	<param-value>cc16st10</param-value>
+ 	<param-value>**********</param-value>
  </context-param>
  <context-param>
  	<param-name>ssh_id</param-name>
- 	<param-value>c16st10</param-value>
+ 	<param-value>************</param-value>
  </context-param>
  <context-param>
  	<param-name>host</param-name>
@@ -55,11 +55,11 @@
  </context-param>
  <context-param>
  	<param-name>username</param-name>
- 	<param-value>rudgh9407</param-value>
+ 	<param-value>**********</param-value>
  </context-param>
  <context-param>
  	<param-name>password</param-name>
- 	<param-value>Bgh61207!</param-value>
+ 	<param-value>***********</param-value>
  </context-param>
  
 <!--
