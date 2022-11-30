@@ -1,37 +1,58 @@
+// Decompiled by Jad v1.5.8g. Copyright 2001 Pavel Kouznetsov.
+// Jad home page: http://www.kpdus.com/jad.html
+// Decompiler options: packimports(3) 
+// Source File Name:   Admin.java
+
 package kiosk.vo;
 
-public class Admin {
-	protected int id;
-	protected String category;
-	protected String menu;
-	protected int count;
-	protected long price;
-	protected String date;
-	public Admin(int _id, String _category, String _menu, int _count, long _price, String _date) {
-		this.id = _id;
-		this.category = _category;
-		this.menu = _menu;
-		this.count = _count;
-		this.price = _price;
-		this.date = _date;
-	}
-	public int getId() {
-		return this.id;
-	}
-	public String getCategory() {
-		return this.category;
-	}
-	public String getMenu() {
-		return this.menu;
-	}
-	public int getCount() {
-		return this.count;	
-	}
-	public long getPrice() {
-		return this.price;
-	}
-	public String getDate() {
-		return this.date;
-	}
-}
 
+public class Admin
+{
+
+    public Admin(int _id, String _category, String _menu, int _count, long _price, String _date)
+    {
+        id = _id;
+        category = _category;
+        menu = _menu;
+        count = _count;
+        price = _price;
+        date = _date;
+    }
+
+    public int getId()
+    {
+        return id;
+    }
+
+    public String getCategory()
+    {
+        return category;
+    }
+
+    public String getMenu()
+    {
+        return menu;
+    }
+
+    public int getCount()
+    {
+        return count;
+    }
+
+    public long getPrice()
+    {
+        return price;
+    }
+
+    public String getDate()
+    {
+        return date;
+    }
+
+    protected int id;
+    protected String category;
+    protected String menu;
+    protected int count;
+    protected long price;
+    protected String date;
+}

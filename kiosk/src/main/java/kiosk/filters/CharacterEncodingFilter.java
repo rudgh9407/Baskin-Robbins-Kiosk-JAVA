@@ -1,31 +1,37 @@
+// Decompiled by Jad v1.5.8g. Copyright 2001 Pavel Kouznetsov.
+// Jad home page: http://www.kpdus.com/jad.html
+// Decompiler options: packimports(3) 
+// Source File Name:   CharacterEncodingFilter.java
+
 package kiosk.filters;
 
 import java.io.IOException;
+import javax.servlet.*;
 
-import jakarta.servlet.Filter;
-import jakarta.servlet.FilterChain;
-import jakarta.servlet.FilterConfig;
-import jakarta.servlet.ServletException;
-import jakarta.servlet.ServletRequest;
-import jakarta.servlet.ServletResponse;
-import jakarta.servlet.annotation.WebFilter;
-import jakarta.servlet.annotation.WebInitParam;
+public class CharacterEncodingFilter
+    implements Filter
+{
 
-@WebFilter(urlPatterns="/*", initParams= {@WebInitParam(name="encoding", value="UTF-8")})
-public class CharacterEncodingFilter implements Filter{
+    public CharacterEncodingFilter()
+    {
+    }
 
-	FilterConfig config;
-	@Override
-	public void init(FilterConfig config) throws ServletException {
-		this.config = config;
-	}
-	
-	@Override
-	public void doFilter(ServletRequest request, ServletResponse response, FilterChain nextFilter) throws IOException, ServletException {
-		request.setCharacterEncoding(config.getInitParameter("encoding"));
-		nextFilter.doFilter(request, response);
-	}
-	
-	@Override
-	public void destroy() {};
+    public void init(FilterConfig config)
+        throws ServletException
+    {
+        this.config = config;
+    }
+
+    public void doFilter(ServletRequest request, ServletResponse response, FilterChain nextFilter)
+        throws IOException, ServletException
+    {
+        request.setCharacterEncoding(config.getInitParameter("encoding"));
+        nextFilter.doFilter(request, response);
+    }
+
+    public void destroy()
+    {
+    }
+
+    FilterConfig config;
 }

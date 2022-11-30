@@ -1,56 +1,54 @@
+// Decompiled by Jad v1.5.8g. Copyright 2001 Pavel Kouznetsov.
+// Jad home page: http://www.kpdus.com/jad.html
+// Decompiler options: packimports(3) 
+// Source File Name:   AppInitServlet.java
+
 package kiosk.servlets;
 
+import com.jcraft.jsch.Session;
+import java.io.PrintStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import javax.servlet.*;
+import javax.servlet.http.HttpServlet;
 
-import com.jcraft.jsch.JSch;
-import com.jcraft.jsch.Session;
+public class AppInitServlet extends HttpServlet
+{
 
-import jakarta.servlet.ServletConfig;
-import jakarta.servlet.ServletContext;
-import jakarta.servlet.ServletException;
-import jakarta.servlet.http.HttpServlet;
+    public AppInitServlet()
+    {
+    }
 
-@SuppressWarnings("serial")
-public class AppInitServlet extends HttpServlet {
-	private Session session;
-	@Override
-	public void init(ServletConfig config) throws ServletException {
-		super.init(config);
-		try {
-			ServletContext sc = this.getServletContext();
-			JSch jsch = new JSch();
-			session = jsch.getSession(sc.getInitParameter("ssh_id"),sc.getInitParameter("host"),22);
-			session.setPassword(sc.getInitParameter("ssh_pw"));
-            java.util.Properties config_ssh = new java.util.Properties();
-            config_ssh.put("StrictHostKeyChecking", "no");
-            this.session.setConfig(config_ssh);
-            session.connect();	
-            System.out.println("SSH Connection...");
-            int forward_port = session.setPortForwardingL(0, "127.0.0.1", 3306); 
-            System.out.println(forward_port + " --> 3306");
-			Class.forName(sc.getInitParameter("driver"));
-			Connection conn = DriverManager.getConnection(
-						"jdbc:mysql://localhost:" + forward_port + "/c16st10",
-						sc.getInitParameter("username"),
-						sc.getInitParameter("password"));
-			System.out.println("DB Connection...");
-			sc.setAttribute("conn", conn);
-		} catch(Throwable e) {
-			throw new ServletException(e);
-		}
-	}
-	@Override
-	public void destroy() {
-		super.destroy();
-		Connection conn = 
-				(Connection)this.getServletContext().getAttribute("conn"); 
-		try {
-			if (conn != null && conn.isClosed() == false) {
-				conn.close();
-			}
-			session.disconnect();
-		} catch (Exception e) {}
-	}
+    public void init(ServletConfig config)
+        throws ServletException
+    {
+        super.init(config);
+        try
+        {
+            ServletContext sc = getServletContext();
+            Class.forName(sc.getInitParameter("driver"));
+            Connection conn = DriverManager.getConnection(sc.getInitParameter("url"), sc.getInitParameter("username"), sc.getInitParameter("password"));
+            System.out.println("DB Connection...");
+            sc.setAttribute("conn", conn);
+        }
+        catch(Throwable e)
+        {
+            throw new ServletException(e);
+        }
+    }
+
+    public void destroy()
+    {
+        super.destroy();
+        Connection conn = (Connection)getServletContext().getAttribute("conn");
+        try
+        {
+            if(conn != null && !conn.isClosed())
+                conn.close();
+            session.disconnect();
+        }
+        catch(Exception exception) { }
+    }
+
+    private Session session;
 }
-
