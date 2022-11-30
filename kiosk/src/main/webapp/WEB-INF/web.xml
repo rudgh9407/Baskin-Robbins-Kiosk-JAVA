@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="https://jakarta.ee/xml/ns/jakartaee" xmlns:web="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd http://xmlns.jcp.org/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="5.0">
+ 
+ <display-name>kiosk</display-name>
+  
+  <!--  Local DB
+ <context-param>
+ 	<param-name>driver</param-name>
+ 	<param-value>com.mysql.jdbc.Driver</param-value>
+ </context-param>
+ <context-param>
+ 	<param-name>url</param-name>
+ 	<param-value>jdbc:mysql://localhost:3306/kiosk</param-value>
+ </context-param>
+ <context-param>
+ 	<param-name>username</param-name>
+ 	<param-value>root</param-value>
+ </context-param>
+ <context-param>
+ 	<param-name>password</param-name>
+ 	<param-value>line5008@</param-value>
+ </context-param>
+   -->
+  
+   
+ <!-- SSH 연결 정보 -->
+<!--
+ -->
+ <context-param>
+ 	<param-name>ssh_pw</param-name>
+ 	<param-value>cc16st10</param-value>
+ </context-param>
+ <context-param>
+ 	<param-name>ssh_id</param-name>
+ 	<param-value>c16st10</param-value>
+ </context-param>
+ <context-param>
+ 	<param-name>host</param-name>
+ 	<param-value>kkms4001.iptime.org</param-value>
+ </context-param>
+ <context-param>
+ 	<param-name>port</param-name>
+ 	<param-value>3306</param-value>
+ </context-param>
+ 
+ <!-- DB 연결 정보 -->
+ <context-param>
+ 	<param-name>driver</param-name>
+ 	<param-value>com.mysql.cj.jdbc.Driver</param-value>
+ </context-param>
+ <context-param>
+ 	<param-name>url</param-name>
+ 	<param-value>jdbc:mysql://localhost</param-value>
+ </context-param>
+ <context-param>
+ 	<param-name>username</param-name>
+ 	<param-value>c16st10</param-value>
+ </context-param>
+ <context-param>
+ 	<param-name>password</param-name>
+ 	<param-value>Z9U7dffwthoQloDI</param-value>
+ </context-param>
+<!--
+ -->
+
+  <servlet>
+  	<servlet-name>AppInitServlet</servlet-name>
+  	<servlet-class>kiosk.servlets.AppInitServlet</servlet-class>
+  	<load-on-startup>1</load-on-startup>
+  </servlet>
+  
+  
+	<servlet-mapping>
+		<servlet-name>default</servlet-name>
+    <url-pattern>*.svg</url-pattern>
+		<url-pattern>*.mp3</url-pattern>
+		<url-pattern>*.png</url-pattern>
+		<url-pattern>*.jpg</url-pattern>
+		<url-pattern>*.gif</url-pattern>
+		<url-pattern>*.json</url-pattern>
+		<url-pattern>*.css</url-pattern>
+		<url-pattern>*.js</url-pattern>
+		<url-pattern>*.ico</url-pattern>
+		<url-pattern>*.jpeg</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>jsp</servlet-name>
+		<url-pattern>*.jsp</url-pattern>
+		<url-pattern>*.jspx</url-pattern>
+	</servlet-mapping>
+</web-app>

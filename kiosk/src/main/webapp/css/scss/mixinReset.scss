@@ -1,0 +1,336 @@
+@charset "utf-8";
+
+// Color 변수
+$colorWhite: #FFF;
+$colorMainPink1: #FB4D8D;
+$colorMainPink2: #FC7AAA;
+$colorMainPink3: #E12568;
+$colorMainBlack1: #322D2D;
+$colorMainBlack2: #848181;
+$colorMainBlack3: #D6D5D5;
+$colorSubPink1: #FDEFF3;
+$colorSubPink2: #FFE7EE;
+$colorSubPink3: #FCB1C4;
+$colorSubYellow1: #FAD475;
+$colorSubGreen1: #9BDEAC;
+$colorSubGreen2: #6ABAA4;
+$colorSubBlue1: #67DEF8;
+
+@mixin sectionInfo(){
+  article{
+    &:nth-child(1){
+      width: 28.4rem;
+      height: 8.8rem;
+      @include flexSetting(row, flex-end, center);
+      div {
+        width: 21.6rem;
+        height: 5.6rem;
+        border-radius: 1.1rem;
+        background-color: $colorWhite;
+        p {
+          font: {
+            size: 2.6rem;
+            weight: bold;
+          }
+          width: 21.6rem;
+          height: 5.6rem;
+          text-align: center;
+          line-height: 5.6rem;
+          color: $colorMainPink1;
+        }
+      }
+    }
+    &:nth-child(2){
+      width: 77.2rem;
+      height: 8.8rem;
+      @include flexSetting(row, flex-start, center);
+      div{
+        width: 29.2rem;
+        height: 3.4rem;
+        p {
+          font-size: 2.6rem;
+          color:$colorMainBlack1;
+        }
+      }
+    }
+  }
+}
+//플렉서블 박스 아이템 정렬 믹스인
+@mixin flexSetting($direction, $justify, $align) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
+//포지션 설정시 정렬
+@mixin positionSetting($position, $top, $right, $bottom, $left, $trans){
+  position: $position;
+  top: $top;
+  right: $right;
+  left: $left;
+  bottom: $bottom;
+  transform: $trans;
+}
+//백그라운드 이미지 설정
+@mixin backgroundSetting($url, $size, $position, $repeat){
+  background-image: $url;
+  background-size: $size;
+  background-position: $position;
+  background-repeat: $repeat;
+}
+//플렉스 바로 중앙정렬
+@mixin flex_center{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  @content;
+}
+//- 결제하기 & 담기 버튼 디자인 -----------------------//
+@mixin buttonBigMainPink{
+  /* 60rem, 11.2rem */
+  box-shadow: 0 1rem 2rem rgba($colorWhite, 0.5) inset, 
+              0 0.4rem 0.4rem rgba($colorWhite, 0.5) inset,
+              -0.3rem -0.6rem 2rem rgba($colorMainPink3, 0.9) inset,
+              0 0.2rem 0.4rem rgba($colorMainPink1, 0.7);
+
+  background-image: linear-gradient(transparent 50%, rgba(255, 255, 255, 0.2));
+  background-color: $colorMainPink1;
+  @content;
+}
+//- 하얀배경 버튼 디자인 -----------------------//
+@mixin buttonWhite{
+  box-shadow: -0.1rem -0.2rem 1rem rgba($colorMainPink2, 0.2) inset, 
+              -0.1rem -0.2rem 2.5rem rgba($colorMainPink2, 0.1) inset,
+              0 0.2rem 0.4rem rgba($colorMainPink1, 0.2);
+  background-color: $colorWhite;
+  @content;
+}
+//- 한칸 지우기 버튼 디자인 -----------------------//
+@mixin buttonSubGreen{
+  box-shadow: 0.1rem 0.1rem 1rem rgba($colorWhite, 0.5) inset, 
+              0 0.4rem 1rem rgba($colorWhite, 0.6) inset, 
+              -0.6rem -1.2rem 2.4rem rgba($colorSubGreen2, 0.6) inset,
+              0 0.2rem 0.4rem rgba($colorSubGreen1, 0.5);
+  background-color: $colorSubGreen1;
+}
+//- 전체 지움 & 아래 화살표 버튼 디자인 -----------------------//
+@mixin buttonMainPink2 {
+  box-shadow: 0.1rem 0.1rem 1rem rgba($colorWhite, 0.5) inset, 
+              0 0.4rem 1rem rgba($colorWhite, 0.6) inset, 
+              -0.4rem -0.4rem 3rem rgba($colorMainPink3, 0.5) inset,
+              0 0.2rem 0.4rem rgba($colorMainPink2, 0.5);
+  background-color: $colorMainPink2;
+  @content;
+}
+
+@mixin buttonSmallMainPink {
+  /* 60rem, 11.2rem */
+  box-shadow: 0 0.2rem 1.5rem rgba($colorWhite, 0.5) inset, 
+              0 0.4rem 0.3rem rgba($colorWhite, 0.3) inset,
+              -0.2rem -0.3rem 2rem rgba($colorMainPink3, 0.9) inset,
+              0 0.1rem 0.3rem rgba($colorMainPink1, 0.7);
+
+  background-image: linear-gradient(transparent 50%, rgba(255, 255, 255, 0.2));
+  background-color: $colorMainPink1;
+  @content;
+}
+// pm 버튼
+@mixin buttonTabMainPink {
+  box-shadow: 0 1rem 1rem rgba($colorWhite, 0.5) inset, 
+              -0.2rem -0.2rem 1rem rgba($colorMainPink3, 0.9) inset,
+              0 0.2rem 0.4rem rgba($colorMainPink1, 0.7);
+  background-color: $colorMainPink1;
+  @content;
+}
+
+
+
+@mixin btnboxDesign(){
+  width: 22rem;
+  height: 18.6rem;
+  box-shadow: inset 0 0 0 0.2rem $colorMainBlack2;
+  border-radius: 2.4rem;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  margin-left:2.4rem;
+}
+
+@mixin btnSimpleDesign(){ //버튼에 문구 하나만 혹은 아이콘 같이 있는 버튼
+  @include btnboxDesign();
+  //btn box
+  &>p {
+    font-family: 'NanumSquareRound';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 2.4rem;
+    line-height: 3.1rem;
+    text-align: center;
+    color: $colorMainBlack3;
+  }
+  &>i{
+    width:5.6rem; height:5.6rem;
+    //background-color: $colorMainBlack3;
+    margin-bottom:1.4rem;
+  }
+  &>.iconCup{
+    @include backgroundSetting(url('../img/iconCup.png'), cover, center, no-repeat); //url size position repeat
+  }
+  &>.iconCupActive{
+    @include backgroundSetting(url('../img/iconCupActive.png'), cover, center, no-repeat); 
+  }
+  &>.iconCone{
+    @include backgroundSetting(url('../img/iconCone.png'), cover, center, no-repeat); //url size position repeat
+  }
+  &>.iconConeActive{
+    @include backgroundSetting(url('../img/iconConeActive.png'), cover, center, no-repeat); 
+  }
+}
+
+@mixin btnCountDesign { //플러스, 마이너스 버튼으로 카운트가 가능한 디자인
+  &>article:nth-child(1) {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    &>p {
+      font-family: 'NanumSquareRound';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 2.4rem;
+      line-height: 3.1rem;
+      text-align: center;
+      color: $colorMainBlack3;
+    }
+  }
+  &>article:nth-child(2) {
+    width: 18rem;
+    height: 4.8rem;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 3.4rem;
+    &>button {
+      border-radius: 50%;
+      width: 4.8rem;
+      height: 4.8rem;
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: center;
+      align-items: center;
+      background-color: $colorMainBlack3;
+      &>i {
+        color: $colorWhite;
+        font: {size: 2.5rem; weight: 500;}
+      }
+    }
+    .buttonSmallDesign{
+      @include buttonSmallMainPink();
+    }
+    &>p {
+      font-family: 'NanumSquareRound';
+      font-style: normal;
+      font-weight: 700;
+      font-size: 3.2rem;
+      line-height: 3.6rem;
+      text-align: center;
+      color: $colorMainBlack3;
+    }
+  }
+}
+
+/* Text 변수 */
+// 제품 가격
+@mixin textItemPrice {
+  color: $colorPinkMain;
+  font: { size: 2.2rem; weight: normal; }
+  line-height: 2.9rem;
+}
+// 기본, 제품 이름
+@mixin textBaseItem {
+  color: $colorBlackMain;
+  font: { size: 2.4rem; weight: normal; }
+  line-height: 3.1rem;
+}
+// 푸터 제품 제목
+@mixin textFootTitle1 {
+  color: $colorBlackMain;
+  font: { size: 2.4rem; weight: bold; }
+  line-height: 3.1rem;
+}
+// 탭 버튼 텍스트
+@mixin textTapBtn {
+  color: $colorBlackMain;
+  font: { size: 2.6rem; weight: normal; }
+  line-height: 3.4rem;
+}
+// 제품 정보 세부 설명
+@mixin textDetailItem {
+  color: #FFF;
+  font: { size: 2.6rem; weight: normal; }
+  line-height: 3.4rem;
+}
+// 푸터 제품 제목
+@mixin textFootTitle2 {
+  color: $colorGrayMain;
+  font: { size: 2.6rem; weight: bold; }
+  line-height: 3.4rem;
+}
+// Big버튼 금액 텍스트
+@mixin textBigBtnPrice {
+  color: $colorBlackMain;
+  font: { size: 3.2rem; weight: normal; }
+  line-height: 4.2rem;
+}
+// Payment 금액 텍스트
+@mixin textPayPrice {
+  color: #FFF;
+  font: { size: 3.2rem; weight: normal; }
+  line-height: 4.2rem;
+}
+// Big버튼 텍스트
+@mixin textBigBtnBlack {
+  color: $colorBlackMain;
+  font: { size: 3.6rem; weight: bold; }
+  line-height: 4.7rem;
+}
+// Big버튼 텍스트
+@mixin textBigBtnWhite {
+  color: #FFF;
+  font: { size: 3.6rem; weight: bold; }
+  line-height: 4.7rem;
+}
+// 결제 버튼
+@mixin textPayBtn {
+  color: #FFF;
+  font: { size: 4rem; weight: bold; }
+  line-height: 5.2rem;
+}
+// 팝업 서브 타이틀
+@mixin textPopSubTitle {
+  color: #FFF;
+  font: { size: 4.8rem; weight: bold; }
+  line-height: 6.2rem;
+}
+// 팝업 타이틀
+@mixin textPopMainTitle {
+  color: #FFF;
+  font: { size: 5.6rem; weight: bold; }
+  line-height: 7.3rem;
+}
+// 최종 결제 금액 안내 텍스트
+@mixin textLastPrice {
+  color: #FFF;
+  font: { size: 8rem; weight: bold; }
+  line-height: 10.4rem;
+}
+// 주문번호, 포인트등 팝업에 뜨는 강조 텍스트
+@mixin textPointNumber {
+  color: #FFF;
+  font: { size: 20rem; weight: Extrabold; }
+  line-height: 26rem;
+}
+
+

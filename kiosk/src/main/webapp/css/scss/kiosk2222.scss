@@ -1,0 +1,476 @@
+@charset "UTF-8";
+* { 
+  margin: 0;
+  padding: 0;
+  font-size: 10px;
+  text-decoration: none;
+  list-style: none;
+  outline: none;
+  border: none;
+  user-select: none;
+  background: transparent;
+  pointer-events: none;
+  font-family: 'NanumSquareRound';
+}
+@font-face {
+    font-family: 'NanumSquareRound';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NanumSquareRound.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+// Color 변수
+$colorPinkMain: #FB4D8D;
+$colorPinkLight: #FC7AAA;
+$colorPinkDarken: #E12568;
+$colorBlackMain: #322D2D;
+$colorGrayMain: #848181;
+$colorGrayLight: #D6D5D5;
+$colorSubPink: #FDEFF3;
+
+/* Text 변수 */
+// 제품 가격
+@mixin textItemPrice {
+  color: $colorPinkMain;
+  font: { size: 2.2rem; weight: normal; }
+  line-height: 2.9rem;
+}
+// 기본, 제품 이름
+@mixin textBaseItem {
+  color: $colorBlackMain;
+  font: { size: 2.4rem; weight: normal; }
+  line-height: 3.1rem;
+}
+// 푸터 제품 제목
+@mixin textFootTitle1 {
+  color: $colorBlackMain;
+  font: { size: 2.4rem; weight: bold; }
+  line-height: 3.1rem;
+}
+// 탭 버튼 텍스트
+@mixin textTapBtn {
+  color: $colorBlackMain;
+  font: { size: 2.6rem; weight: normal; }
+  line-height: 3.4rem;
+}
+// 제품 정보 세부 설명
+@mixin textDetailItem {
+  color: #FFF;
+  font: { size: 2.6rem; weight: normal; }
+  line-height: 3.4rem;
+}
+// 푸터 제품 제목
+@mixin textFootTitle2 {
+  color: $colorGrayMain;
+  font: { size: 2.6rem; weight: bold; }
+  line-height: 3.4rem;
+}
+// Big버튼 금액 텍스트
+@mixin textBigBtnPrice {
+  color: $colorBlackMain;
+  font: { size: 3.2rem; weight: normal; }
+  line-height: 4.2rem;
+}
+// Payment 금액 텍스트
+@mixin textPayPrice {
+  color: #FFF;
+  font: { size: 3.2rem; weight: normal; }
+  line-height: 4.2rem;
+}
+// Big버튼 텍스트
+@mixin textBigBtnBlack {
+  color: $colorBlackMain;
+  font: { size: 3.6rem; weight: bold; }
+  line-height: 4.7rem;
+}
+// Big버튼 텍스트
+@mixin textBigBtnWhite {
+  color: #FFF;
+  font: { size: 3.6rem; weight: bold; }
+  line-height: 4.7rem;
+}
+// 결제 버튼
+@mixin textPayBtn {
+  color: #FFF;
+  font: { size: 4rem; weight: bold; }
+  line-height: 5.2rem;
+}
+// 팝업 서브 타이틀
+@mixin textPopSubTitle {
+  color: #FFF;
+  font: { size: 4.8rem; weight: bold; }
+  line-height: 6.2rem;
+}
+// 팝업 타이틀
+@mixin textPopMainTitle {
+  color: #FFF;
+  font: { size: 5.6rem; weight: bold; }
+  line-height: 7.3rem;
+}
+// 최종 결제 금액 안내 텍스트
+@mixin textLastPrice {
+  color: #FFF;
+  font: { size: 8rem; weight: bold; }
+  line-height: 10.4rem;
+}
+// 주문번호, 포인트등 팝업에 뜨는 강조 텍스트
+@mixin textPointNumber {
+  color: #FFF;
+  font: { size: 20rem; weight: Extrabold; }
+  line-height: 26rem;
+}
+
+
+
+
+html { 
+  width: 100%;
+  height: 100%;
+  body {
+    width: 100%;
+    height: 100%;
+    padding: 10rem;
+    // background-color: #f654;
+    // p {
+    //   &:nth-child(1) {
+    //     @include textItemPrice();
+    //   }
+    //   &:nth-child(2) {
+    //     @include textBaseItem();
+    //   }
+    //   &:nth-child(3) {
+    //     @include textFootTitle1();
+    //   }
+    //   &:nth-child(4) {
+    //     @include textTapBtn();
+    //   }
+    //   &:nth-child(5) {
+    //     @include textDetailItem();
+    //   }
+    //   &:nth-child(6) {
+    //     @include textFootTitle2();
+    //   }
+    //   &:nth-child(7) {
+    //     @include textBigBtnPrice();
+    //   }
+    //   &:nth-child(8) {
+    //     @include textPayPrice();
+    //   }
+    //   &:nth-child(9) {
+    //     @include textBigBtnBlack();
+    //   }
+    //   &:nth-child(10) {
+    //     @include textBigBtnWhite();
+    //   }
+    //   &:nth-child(11) {
+    //     @include textPayBtn();
+    //   }
+    //   &:nth-child(12) {
+    //     @include textPopSubTitle();
+    //   }
+    //   &:nth-child(13) {
+    //     @include textPopMainTitle();
+    //   }
+    //   &:nth-child(14) {
+    //     @include textLastPrice();
+    //   }
+    //   &:nth-child(15) {
+    //     @include textPointNumber();
+    //   }
+    // } // 텍스트
+    // &>article {
+    //   margin: 5rem;
+    //   width: 108rem;
+    //   height: 10.8rem;
+    //   position: relative;
+    //   display: flex;
+    //   flex-flow: row nowrap;
+    //   justify-content: space-around;
+    //   align-items: center;      
+    //   background-color: $colorPinkMain;
+    //   &>article {
+    //     position: absolute;
+    //     left: 0;
+    //     top: 0%;
+    //     width: 57.9rem;
+    //     height: 100%;
+    //     background-color: $colorSubPink;
+    //     clip-path: polygon(0% 0%, 92.8% 0%, 100% 50%, 92.8% 100%, 0% 100%);
+    //   }
+    //   &>p {
+    //     color: $colorBlackMain;
+    //     font: { size: 3.4rem; weight: normal; }
+    //     line-height: 4.4rem;
+    //     z-index: 100;
+    //     &:nth-child(3) {
+    //       color: #FFF;
+    //     }
+    //   }
+    // } // 이동 탭
+    // &>section {
+    //   width: 74.4rem;
+    //   height: 11.2rem;
+    //   display: flex;
+    //   flex-flow: row nowrap;
+    //   justify-content: space-around;
+    //   align-items: center;
+    //   &>article:nth-child(1) {
+    //     width: 30.4rem;
+    //     height: 11.2rem;
+    //     border-radius: 5.6rem;
+    //     box-shadow: 0 0 0 0.2rem $colorPinkMain inset;
+    //     position: relative;
+    //     &>article {
+    //       width: 4.8rem;
+    //       height: 4.8rem;
+    //       display: flex;
+    //       flex-flow: row nowrap;
+    //       justify-content: center;
+    //       align-items: center;
+    //       position: absolute;
+    //       left: 1.2rem;
+    //       top: 3.2rem;
+    //       &>div {
+    //         width: 0.9rem;
+    //         height: 1.8rem;
+    //         position: absolute;
+    //         left: 1.8rem;
+    //         top: 1.5rem;
+    //         color: $colorPinkDarken;
+    //         background: {
+    //           image: url('../img/Vector5.svg');
+    //           repeat: no-repeat;
+    //           size: cover;
+    //           position: center center
+    //         }
+    //       }
+    //     }
+    //     &>p {
+    //       position: absolute;
+    //       left: 8.2rem;
+    //       top: 3.6rem;
+    //       font-family: 'NanumSquareRound';
+    //       font-style: normal;
+    //       font-weight: 700;
+    //       font-size: 36px;
+    //       line-height: 41px;
+    //       text-align: center;
+    //       color: $colorPinkMain;
+    //     }
+    //   }
+    //   &>article:nth-child(2) {
+    //     width: 40rem;
+    //     height: 11.2rem;
+    //     background: $colorPinkMain;
+    //     border-radius: 5.6rem;
+    //     position: relative;
+    //     &>p {
+    //       position: absolute;
+    //       top: 3.5rem;
+    //       left: 17.2rem;
+    //       font-family: 'NanumSquareRound';
+    //       font-style: normal;
+    //       font-weight: 700;
+    //       font-size: 36px;
+    //       line-height: 41px;
+    //       text-align: right;
+    //       color: #FFFFFF;
+    //     }
+    //     &>article {
+    //       width: 4.8rem;
+    //       height: 4.8rem;
+    //       position: absolute;
+    //       top: 3.2rem;
+    //       right: 2.4rem;
+    //       &>div {
+    //         position: absolute;
+    //         top: 1.5rem;
+    //         right: 1.8rem;
+    //         width: 0.9rem;
+    //         height: 1.8rem;
+    //         background: {
+    //           image: url('../img/Vector6.svg');
+    //           repeat: no-repeat;
+    //           size: cover;
+    //           position: center center;
+    //         };
+    //       }
+    //     }
+    //   }
+    // }
+    &>section {
+      width: 94.4rem;
+      height: 18.6rem;
+      position: relative;
+      &>i {
+        width: 4.8rem;
+        height: 4.8rem;
+        color: $colorPinkMain;
+        font: {size: 5rem; weight: 600;};
+        line-height: 4.8rem;
+        text-align: center;
+      }
+      &>p {
+        position: absolute;
+        width: 5.9rem;
+        height: 3.6rem;
+        left: 6.4rem;
+        top: 0.6rem;
+        font-family: 'NanumSquareRound';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 3.2rem;
+        line-height: 3.6rem;
+        color: #322D2D;
+      }
+      &>article:nth-child(3) {
+        width: 22rem;
+        height: 18.6rem;
+        position: absolute;
+        top: 0;
+        left: 23.6rem;
+        box-shadow: inset 0 0 0 0.2rem $colorGrayMain;
+        border-radius: 2.4rem;
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: center;
+        align-items: center;
+        &>p {
+          font-family: 'NanumSquareRound';
+          font-style: normal;
+          font-weight: 400;
+          font-size: 2.4rem;
+          line-height: 3.1rem;
+          text-align: center;
+          color: #322D2D;
+        }
+      }
+      &>article:nth-child(4) {
+        width: 22rem;
+        height: 18.6rem;
+        position: absolute;
+        top: 0;
+        left: 48rem;
+        box-shadow: inset 0 0 0 0.2rem $colorPinkMain;
+        border-radius: 2.4rem;
+        &>article:nth-child(1) {
+          // width: 12.7rem;
+          // height: 6.2rem;
+          position: absolute;
+          top: 2rem;
+          left: 4.7rem;
+          display: flex;
+          flex-flow: column nowrap;
+          justify-content: center;
+          align-items: center;
+          &>p {
+            font-family: 'NanumSquareRound';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 2.4rem;
+            line-height: 3.1rem;
+            text-align: center;
+            color: #FB4D8D;
+          }
+        }
+        &>article:nth-child(2) {
+          width: 18rem;
+          height: 4.8rem;
+          display: flex;
+          flex-flow: row nowrap;
+          justify-content: space-between;
+          align-items: center;
+          position: absolute;
+          top: 11.4rem;
+          left: 2rem;
+          &>div {
+            border-radius: 50%;
+            width: 4.8rem;
+            height: 4.8rem;
+            background-color: $colorPinkMain;
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: center;
+            align-items: center;
+            &>i {
+              color: #FFF;
+              font: {size: 2.5rem; weight: 500;}
+            }
+          }
+          &>p {
+            font-family: 'NanumSquareRound';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 3.2rem;
+            line-height: 3.6rem;
+            text-align: center;
+            color: #E12568;
+          }
+        }
+      }
+      &>article:nth-child(5) {
+        width: 22rem;
+        height: 18.6rem;
+        position: absolute;
+        top: 0;
+        left: 72.4rem;
+        box-shadow: inset 0 0 0 0.2rem $colorGrayMain;
+        border-radius: 2.4rem;
+        &>article:nth-child(1) {
+          // width: 12.7rem;
+          // height: 6.2rem;
+          position: absolute;
+          top: 2rem;
+          left: 4.7rem;
+          display: flex;
+          flex-flow: column nowrap;
+          justify-content: center;
+          align-items: center;
+          &>p {
+            font-family: 'NanumSquareRound';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 2.4rem;
+            line-height: 3.1rem;
+            text-align: center;
+            color: $colorBlackMain;
+          }
+        }
+        &>article:nth-child(2) {
+          width: 18rem;
+          height: 4.8rem;
+          display: flex;
+          flex-flow: row nowrap;
+          justify-content: space-between;
+          align-items: center;
+          position: absolute;
+          top: 11.4rem;
+          left: 2rem;
+          &>div {
+            border-radius: 50%;
+            width: 4.8rem;
+            height: 4.8rem;
+            background-color: $colorGrayLight;
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: center;
+            align-items: center;
+            &>i {
+              color: #FFF;
+              font: {size: 2.5rem; weight: 500;}
+            }
+          }
+          &>p {
+            font-family: 'NanumSquareRound';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 3.2rem;
+            line-height: 3.6rem;
+            text-align: center;
+            color: $colorBlackMain;
+          }
+        }
+      }
+    }
+  } //--- body ---//
+} //--- html ---//

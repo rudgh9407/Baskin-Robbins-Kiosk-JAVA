@@ -1,0 +1,172 @@
+@charset "UTF-8";
+* { 
+  margin: 0;
+  padding: 0;
+  font-size: 10px;
+  text-decoration: none;
+  list-style: none;
+  outline: none;
+  border: none;
+  user-select: none;
+  background: transparent;
+  font-family: 'NanumSquareRound';
+  font-style: normal;
+}
+
+// Color 변수
+$colorWhite: #FFF;
+$colorMainPink1: #FB4D8D;
+$colorMainPink2: #FC7AAA;
+$colorMainPink3: #E12568;
+$colorMainBlack1: #322D2D;
+$colorMainBlack2: #848181;
+$colorMainBlack3: #D6D5D5;
+$colorSubPink1: #FDEFF3;
+$colorSubPink2: #FFE7EE;
+$colorSubPink3: #FCB1C4;
+$colorSubYellow1: #FAD475;
+$colorSubGreen1: #9BDEAC;
+$colorSubGreen2: #6ABAA4;
+$colorSubBlue1: #67DEF8;
+
+//- 결제하기 & 담기 버튼 디자인 -----------------------//
+@mixin buttonBigMainPink {
+  /* 60rem, 11.2rem */
+  box-shadow: 0 1rem 2rem rgba($colorWhite, 0.5) inset, 
+              0 0.4rem 0.4rem rgba($colorWhite, 0.5) inset,
+              -0.3rem -0.6rem 2rem rgba($colorMainPink3, 0.9) inset,
+              0 0.2rem 0.4rem rgba($colorMainPink1, 0.7);
+
+  background-image: linear-gradient(transparent 50%, rgba(255, 255, 255, 0.2));
+  background-color: $colorMainPink1;
+  @content;
+}
+//- 한칸 지우기 버튼 디자인 -----------------------//
+@mixin buttonSubGreen{
+  box-shadow: 0.1rem 0.1rem 1rem rgba($colorWhite, 0.5) inset, 
+              0 0.4rem 1rem rgba($colorWhite, 0.6) inset, 
+              -0.6rem -1.2rem 2.4rem rgba($colorSubGreen2, 0.6) inset,
+              0 0.2rem 0.4rem rgba($colorSubGreen1, 0.5);
+  background-color: $colorSubGreen1;
+}
+//- 전체 지움 & 아래 화살표 버튼 디자인 -----------------------//
+@mixin buttonMainPink2 {
+  box-shadow: 0.1rem 0.1rem 1rem rgba($colorWhite, 0.5) inset, 
+              0 0.4rem 1rem rgba($colorWhite, 0.6) inset, 
+              -0.4rem -0.4rem 3rem rgba($colorMainPink3, 0.5) inset,
+              0 0.2rem 0.4rem rgba($colorMainPink2, 0.5);
+  background-color: $colorMainPink2;
+  @content;
+}
+//- 하얀배경 버튼 디자인 -----------------------//
+@mixin buttonWhite{
+  box-shadow: -0.1rem -0.2rem 1rem rgba($colorMainPink2, 0.2) inset, 
+              -0.1rem -0.2rem 2.5rem rgba($colorMainPink2, 0.1) inset,
+              0 0.2rem 0.4rem rgba($colorMainPink1, 0.2);
+  background-color: $colorWhite;
+  @content;
+}
+
+html { 
+  body {
+    #pageFinish {
+      left: calc(50% - 54rem);
+      width: 108rem;
+      height: 192rem;
+      background-color: rgba(50, 45, 45, 0.5);
+      position: absolute;
+      &>#wrapPageFinish {
+        position: absolute;
+        width: 108.2rem;
+        height: 184.1rem;
+        bottom : 0;
+        left: -0.1rem;
+        background-color: $colorSubPink1;
+        border-top-left-radius: 12rem;
+        border-top-right-radius: 12rem;
+        &>section {
+          width: 94.4rem;
+          height: 146.6rem;
+          margin-top: 8.1rem;
+          margin-left: 6.9rem;
+          background-color: $colorWhite;
+          border-radius: 8rem;
+          display: flex;
+          flex-flow: column nowrap;
+          justify-content: flex-start;
+          align-items: center;
+          &>p:nth-child(1) {
+            margin-top: 16rem;
+            font-weight: 700;
+            font-size: 5.6rem;
+            line-height: 6.4rem;
+            text-align: center;
+            color: $colorMainPink1;
+          }
+          &>p:nth-child(2) {
+            margin-top: 1.6rem;
+            font-style: normal;
+            font-weight: 400;
+            font-size: 3.2rem;
+            line-height: 4.2rem;
+            text-align: center;
+            color: $colorMainBlack1;
+          }
+          &>p:nth-child(3) {
+            margin-top: 22.8rem;
+            font-weight: 800;
+            font-size: 4.8rem;
+            line-height: 5.4rem;
+            text-align: center;
+            color: $colorMainPink1;
+          }
+          &>p:nth-child(4) {
+            margin-top: 6.4rem;
+            font-weight: 800;
+            font-size: 20rem;
+            line-height: 22.7rem;
+            text-align: center;
+            color: $colorMainPink1;
+          }
+          &>article:nth-child(5) {
+            margin-top: 32.4rem;
+            width: 74.4rem;
+            height: 11.2rem;
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: space-between;
+            align-items: center;
+            &>p:nth-child(1) {
+              width: 35.2rem;
+              height: 11.2rem;
+              border-radius: 5.6rem;
+              background-color: $colorMainPink1;
+              font-weight: 700;
+              font-size: 3.6rem;
+              line-height: 4.1rem;
+              text-align: center;
+              color: $colorWhite;
+              line-height: 11.2rem;
+              @include buttonBigMainPink();
+              cursor: pointer;
+            }
+            &>p:nth-child(2) {
+              width: 35.2rem;
+              height: 11.2rem;
+              border-radius: 5.6rem;
+              background-color: $colorWhite;
+              box-shadow: inset 0 0 0 0.2rem $colorMainPink1;
+              font-weight: 700;
+              font-size: 3.6rem;
+              line-height: 4.1rem;
+              text-align: center;
+              color: $colorMainPink1;
+              line-height: 11.2rem;
+              cursor: pointer;
+            }
+          }
+        }
+      }
+    }
+  } //--- body ---//
+} //--- html ---//
