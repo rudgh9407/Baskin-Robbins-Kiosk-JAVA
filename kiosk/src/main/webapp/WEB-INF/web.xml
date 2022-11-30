@@ -3,46 +3,6 @@
  
  <display-name>kiosk</display-name>
   
-  <!--  Local DB
- <context-param>
- 	<param-name>driver</param-name>
- 	<param-value>com.mysql.jdbc.Driver</param-value>
- </context-param>
- <context-param>
- 	<param-name>url</param-name>
- 	<param-value>jdbc:mysql://localhost:3306/kiosk</param-value>
- </context-param>
- <context-param>
- 	<param-name>username</param-name>
- 	<param-value>root</param-value>
- </context-param>
- <context-param>
- 	<param-name>password</param-name>
- 	<param-value>line5008@</param-value>
- </context-param>
-   -->
-  
-   
- <!-- SSH 연결 정보 -->
-<!--
- -->
- <context-param>
- 	<param-name>ssh_pw</param-name>
- 	<param-value>cc16st10</param-value>
- </context-param>
- <context-param>
- 	<param-name>ssh_id</param-name>
- 	<param-value>c16st10</param-value>
- </context-param>
- <context-param>
- 	<param-name>host</param-name>
- 	<param-value>kkms4001.iptime.org</param-value>
- </context-param>
- <context-param>
- 	<param-name>port</param-name>
- 	<param-value>3306</param-value>
- </context-param>
- 
  <!-- DB 연결 정보 -->
  <context-param>
  	<param-name>driver</param-name>
@@ -50,18 +10,16 @@
  </context-param>
  <context-param>
  	<param-name>url</param-name>
- 	<param-value>jdbc:mysql://localhost</param-value>
+ 	<param-value>jdbc:mysql://localhost:3306/rudgh9407?autoReconnect=true</param-value>
  </context-param>
  <context-param>
  	<param-name>username</param-name>
- 	<param-value>c16st10</param-value>
+ 	<param-value>*******</param-value>
  </context-param>
  <context-param>
  	<param-name>password</param-name>
- 	<param-value>Z9U7dffwthoQloDI</param-value>
+ 	<param-value>************</param-value>
  </context-param>
-<!--
- -->
 
   <servlet>
   	<servlet-name>AppInitServlet</servlet-name>
